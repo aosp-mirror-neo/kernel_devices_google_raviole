@@ -56,7 +56,9 @@ _RAVIOLE_UPSTREAM_MODULES = [
     "drivers/rtc/rtc-s5m.ko",
     # USB
     "drivers/phy/samsung/phy-exynos5-usbdrd.ko",
+    "drivers/usb/dwc3/dwc3.ko",
     "drivers/usb/dwc3/dwc3-exynos.ko",
+    "drivers/usb/host/xhci-plat-hcd.ko",
     # TCPCi
     "drivers/usb/typec/tcpm/tcpci_maxim.ko",
     # FB/display
