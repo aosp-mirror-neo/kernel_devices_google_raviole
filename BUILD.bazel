@@ -27,28 +27,36 @@ load(
 load("//common:modules.bzl", "get_gki_modules_list", "get_kunit_modules_list")
 
 _RAVIOLE_UPSTREAM_MODULES = [
-    # keep sorted
-    "drivers/clk/clk-s2mps11.ko",
-    "drivers/firmware/samsung/acpm-protocol.ko",
-    "drivers/gpio/gpio-max77759.ko",
-    "drivers/i2c/busses/i2c-exynos5.ko",
-    "drivers/mailbox/exynos-mailbox.ko",
-    "drivers/mfd/max77759.ko",
-    "drivers/mfd/sec-acpm.ko",
-    "drivers/mfd/sec-core.ko",
-    "drivers/misc/eeprom/at24.ko",
-    "drivers/nvmem/nvmem-max77759.ko",
-    "drivers/perf/arm_dsu_pmu.ko",
-    "drivers/phy/samsung/phy-exynos-ufs.ko",
-    "drivers/phy/samsung/phy-exynos5-usbdrd.ko",
-    "drivers/rtc/rtc-s5m.ko",
-    "drivers/soc/samsung/exynos-usi.ko",
+    # SOC_SAMSUNG configs
     "drivers/soc/samsung/exynos_chipid.ko",
-    "drivers/ufs/host/ufs-exynos.ko",
-    "drivers/usb/dwc3/dwc3-exynos.ko",
-    "drivers/usb/typec/tcpm/tcpci_maxim.ko",
-    "drivers/video/fbdev/simplefb.ko",
+    "drivers/soc/samsung/exynos-usi.ko",
+    "drivers/i2c/busses/i2c-exynos5.ko",
+    # Pixel 6 modules
+    "drivers/perf/arm_dsu_pmu.ko",
     "drivers/watchdog/s3c2410_wdt.ko",
+    "drivers/misc/eeprom/at24.ko",
+    # UFS
+    "drivers/phy/samsung/phy-exynos-ufs.ko",
+    "drivers/ufs/host/ufs-exynos.ko",
+    # max77759
+    "drivers/mfd/max77759.ko",
+    "drivers/gpio/gpio-max77759.ko",
+    "drivers/nvmem/nvmem-max77759.ko",
+    # acpm
+    "drivers/mailbox/exynos-mailbox.ko",
+    "drivers/firmware/samsung/acpm-protocol.ko",
+    # s2mpg1x (needs acpm)
+    "drivers/mfd/sec-core.ko",
+    "drivers/mfd/sec-acpm.ko",
+    "drivers/clk/clk-s2mps11.ko",
+    "drivers/rtc/rtc-s5m.ko",
+    # USB
+    "drivers/phy/samsung/phy-exynos5-usbdrd.ko",
+    "drivers/usb/dwc3/dwc3-exynos.ko",
+    # TCPCi
+    "drivers/usb/typec/tcpm/tcpci_maxim.ko",
+    # FB/display
+    "drivers/video/fbdev/simplefb.ko",
 ]
 
 kernel_build(
