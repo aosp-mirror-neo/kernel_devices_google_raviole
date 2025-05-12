@@ -31,6 +31,7 @@ _RAVIOLE_UPSTREAM_MODULES = [
     "drivers/soc/samsung/exynos_chipid.ko",
     "drivers/soc/samsung/exynos-usi.ko",
     "drivers/i2c/busses/i2c-exynos5.ko",
+    "drivers/spi/spi-s3c64xx.ko",
     # Pixel 6 modules
     "drivers/perf/arm_dsu_pmu.ko",
     "drivers/watchdog/s3c2410_wdt.ko",
