@@ -19,6 +19,7 @@ load(
     "//build/kernel/kleaf:kernel.bzl",
     "boot_image",
     "dtb_image",
+    "dtbo_image",
     "initramfs",
     "kernel_build",
     "kernel_modules_install",
@@ -56,7 +57,6 @@ kernel_build(
     outs = [
         "Image.lz4",
         "System.map",
-        "arch/arm64/boot/dts/exynos/google/gs101-oriole.dtb",
         "modules.builtin",
         "modules.builtin.modinfo",
         "vmlinux",
@@ -68,7 +68,6 @@ kernel_build(
     make_goals = [
         "Image.lz4",
         "modules",
-        "exynos/google/gs101-oriole.dtb",
     ],
     makefile = "//common:Makefile",
     module_outs = get_gki_modules_list("arm64") +
@@ -109,8 +108,18 @@ write_file(
 
 dtb_image(
     name = "raviole_upstream_dtb",
-    srcs = [":raviole_upstream/arch/arm64/boot/dts/exynos/google/gs101-oriole.dtb"],
+    srcs = ["//devices/google/raviole/dts:gs101-oriole.dtb"],
     out = "dtb.img",
+)
+
+dtbo_image(
+    name = "raviole_upstream_dtbo",
+    srcs = ["//devices/google/raviole/dts:dtbos"],
+    opts = [
+        "--page_size=4096",
+        "--id=/:board_id",
+        "--rev=/:board_rev",
+    ],
 )
 
 initramfs(
@@ -127,6 +136,7 @@ pkg_files(
         ":raviole_upstream",
         ":raviole_upstream_boot",
         ":raviole_upstream_dtb",
+        ":raviole_upstream_dtbo",
         ":raviole_upstream_initramfs",
         ":raviole_upstream_modules_install",
     ],

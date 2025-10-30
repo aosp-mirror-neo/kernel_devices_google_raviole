@@ -1,0 +1,69 @@
+# SPDX-License-Identifier: GPL-2.0
+
+load("@rules_devicetree//devicetree:dtb.bzl", "dtb")
+load("@rules_devicetree//devicetree:dtb_composite.bzl", "dtb_composite")
+load("@rules_devicetree//devicetree:dtbo.bzl", "dtbo")
+
+dtb(
+    name = "gs101-oriole.dtb",
+    srcs = ["//common:arch/arm64/boot/dts/exynos/google/gs101-oriole.dts"],
+    generate_symbols = True,
+    visibility = ["//devices/google/raviole:__subpackages__"],
+    deps = ["//common:all_exynos_google_dtsi"],
+)
+
+dtb(
+    name = "gs101-raven.dtb",
+    srcs = ["//common:arch/arm64/boot/dts/exynos/google/gs101-raven.dts"],
+    generate_symbols = True,
+    visibility = ["//devices/google/raviole:__subpackages__"],
+    deps = ["//common:all_exynos_google_dtsi"],
+)
+
+dtbo(
+    name = "gs101-oriole-overlay.dtbo",
+    srcs = [
+        "gs101-oriole.dtso",
+    ],
+    visibility = ["//devices/google/raviole:__subpackages__"],
+    deps = ["//common:dtc_includes_aarch64"],
+)
+
+dtbo(
+    name = "gs101-raven-overlay.dtbo",
+    srcs = [
+        "gs101-raven.dtso",
+    ],
+    visibility = ["//devices/google/raviole:__subpackages__"],
+    deps = ["//common:dtc_includes_aarch64"],
+)
+
+dtb_composite(
+    name = "gs101-oriole-gs101-oriole-overlay.dtb",
+    base = ":gs101-oriole.dtb",
+    overlays = ["gs101-oriole-overlay.dtbo"],
+)
+
+dtb_composite(
+    name = "gs101-raven-gs101-raven-overlay.dtb",
+    base = ":gs101-raven.dtb",
+    overlays = ["gs101-raven-overlay.dtbo"],
+)
+
+filegroup(
+    name = "dtbs",
+    srcs = [
+        "gs101-oriole.dtb",
+        "gs101-raven.dtb",
+    ],
+    visibility = ["//devices/google/raviole:__subpackages__"],
+)
+
+filegroup(
+    name = "dtbos",
+    srcs = [
+        "gs101-oriole-overlay.dtbo",
+        "gs101-raven-overlay.dtbo",
+    ],
+    visibility = ["//devices/google/raviole:__subpackages__"],
+)
