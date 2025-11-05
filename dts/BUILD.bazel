@@ -23,6 +23,7 @@ dtb(
 dtbo(
     name = "gs101-oriole-overlay.dtbo",
     srcs = [
+        "gs101-common.dtsi",
         "gs101-oriole.dtso",
     ],
     visibility = ["//devices/google/raviole:__subpackages__"],
@@ -32,6 +33,7 @@ dtbo(
 dtbo(
     name = "gs101-raven-overlay.dtbo",
     srcs = [
+        "gs101-common.dtsi",
         "gs101-raven.dtso",
     ],
     visibility = ["//devices/google/raviole:__subpackages__"],

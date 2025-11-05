@@ -33,3 +33,5 @@
 	format = "a8r8g8b8";
 	status = "okay";
 };
+
+#include "gs101-common.dtsi"

@@ -1,0 +1,10 @@
+// SPDX-License-Identifier: GPL-2.0-only
+/*
+ * Common gs101 Device Tree Overlay
+ *
+ * Copyright 2025 Google LLC
+ */
+
+&{/chosen} {
+	bootargs = "earlycon clocksource=arch_sys_counter clk_ignore_unused no_console_suspend loop.max_part=7 root=/dev/ram0 firmware_class.path=/vendor/firmware softlockup_panic=1 androidboot.hardware.platform=gs101 androidboot.boot_devices=soc@0/14700000.ufs";
+};
