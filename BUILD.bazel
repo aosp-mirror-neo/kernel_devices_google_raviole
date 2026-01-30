@@ -50,6 +50,8 @@ _RAVIOLE_UPSTREAM_MODULES = [
     # acpm
     "drivers/mailbox/exynos-mailbox.ko",
     "drivers/firmware/samsung/acpm-protocol.ko",
+    # acpm clocks
+    "drivers/clk/samsung/clk-acpm.ko",
     # s2mpg1x (needs acpm)
     "drivers/mfd/sec-core.ko",
     "drivers/mfd/sec-acpm.ko",
