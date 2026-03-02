@@ -24,7 +24,7 @@ load(
     "kernel_build",
     "kernel_modules_install",
 )
-load("//common:modules.bzl", "get_gki_modules_list", "get_kunit_modules_list")
+load("//common:bazel/modules.bzl", "get_gki_modules_list", "get_kunit_modules_list")
 
 _RAVIOLE_UPSTREAM_MODULES = [
     # SOC_SAMSUNG configs
