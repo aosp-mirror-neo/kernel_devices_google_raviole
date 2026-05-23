@@ -43,6 +43,7 @@ _RAVIOLE_UPSTREAM_MODULES = [
     "drivers/mfd/max77759.ko",
     "drivers/gpio/gpio-max77759.ko",
     "drivers/nvmem/nvmem-max77759.ko",
+    "drivers/power/supply/max77759_charger.ko",
     # reboot mode, nvmem depends on max77759
     "drivers/power/reset/syscon-reboot-mode.ko",
     "drivers/power/reset/reboot-mode.ko",
