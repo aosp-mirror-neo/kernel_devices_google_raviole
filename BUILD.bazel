@@ -91,6 +91,7 @@ kernel_build(
     module_outs = get_gki_modules_list("arm64") +
                   get_kunit_modules_list("arm64") +
                   _RAVIOLE_UPSTREAM_MODULES,
+    pahole = "//common:pahole",
     pre_defconfig_fragments = [":raviole_gki.fragment"],
     strip_modules = True,
     visibility = ["//visibility:public"],
